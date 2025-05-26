@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Official fan page for Katerina Danilenko - Cute K Fam community">
+  <title>Cute-K-Fam | Katerina Danilenko Fan Page</title>
+  <link rel="icon" type="image/png" href="Circle.png">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #0077cc;
+      --secondary: #005fa3;
+      --accent: #66c2ff;
+      --light: #d8eefe;
+      --lighter: #e6f4ff;
+      --dark: #1f3b73;
+      --darker: #003366;
+    }
+    
+    * {
+      box-sizing: border-box;
+      transition: all 0.3s ease;
+    }
+    
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, var(--light), #c6e0ff);
+      font-family: 'Quicksand', sans-serif;
+      text-align: center;
+      color: var(--dark);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      padding: 20px;
+      background: rgba(255,255,255,0.2);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      margin: 20px 0;
+      color: var(--primary);
+      text-shadow: 0 0 10px var(--accent);
+      letter-spacing: 1px;
+    }
+
+    h2.section-title {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      margin-top: 40px;
+      color: var(--secondary);
+      text-shadow: 0 0 6px #99d6ff;
+      position: relative;
+      display: inline-block;
+    }
+    
+    h2.section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60%;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      border-radius: 3px;
+    }
+
+    .main-content {
+      flex: 1;
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .glow-container {
+      position: relative;
+      width: clamp(120px, 25vw, 180px);
+      height: clamp(120px, 25vw, 180px);
+      margin: 30px auto;
+      border-radius: 50%;
+      box-shadow: 0 0 25px 10px var(--accent);
+      overflow: hidden;
+      border: 3px solid white;
+    }
+
+    .glow-container img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      cursor: pointer;
+      border: none;
+      outline: none;
+    }
+
+    .glow-container:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 35px 15px var(--accent);
+    }
+
+    .shine-effect::before {
+      content: '';
+      position: absolute;
+      top: -100%;
+      left: -100%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0.1) 100%);
+      animation: shine 3s infinite;
+      z-index: 1;
+    }
+
+    @keyframes shine {
+      0% { transform: rotate(0deg) translate(-50%, -50%); }
+      100% { transform: rotate(360deg) translate(-50%, -50%); }
+    }
+
+    .social-container {
+      background: rgba(255,255,255,0.3);
+      backdrop-filter: blur(5px);
+      border-radius: 20px;
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 600px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .social-icons, .fan-icons {
+      margin: 20px auto;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 25px;
+    }
+
+    .social-icon {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      color: var(--darker);
+    }
+    
+    .social-icon span {
+      margin-top: 5px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .social-icons img, .fan-icons img {
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+      filter: drop-shadow(0 0 5px #80bfff);
+      border-radius: 50%;
+      padding: 10px;
+      background: rgba(255,255,255,0.7);
+    }
+
+    .social-icons img:hover, .fan-icons img:hover {
+      transform: scale(1.15);
+      background: white;
+    }
+
+    p {
+      font-weight: 600;
+      max-width: 600px;
+      margin: 20px auto;
+      line-height: 1.6;
+    }
+    
+    .bio {
+      background: rgba(255,255,255,0.3);
+      backdrop-filter: blur(5px);
+      padding: 20px;
+      border-radius: 15px;
+      margin: 30px auto;
+      max-width: 700px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 15px;
+      margin: 30px auto;
+      max-width: 900px;
+    }
+    
+    .gallery-item {
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+      height: 200px;
+    }
+    
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+    
+    .gallery-item:hover img {
+      transform: scale(1.1);
+    }
+
+    footer {
+      margin-top: 60px;
+      padding: 25px;
+      background-color: var(--lighter);
+      color: var(--darker);
+      font-size: 0.95em;
+      box-shadow: inset 0 1px 5px rgba(0,0,0,0.05);
+    }
+
+    footer a {
+      color: var(--secondary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: var(--primary);
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.5rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      opacity: 0;
+      visibility: hidden;
+    }
+    
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .back-to-top:hover {
+      background: var(--secondary);
+      transform: translateY(-5px);
+    }
+
+    @media (max-width: 768px) {
+      .gallery {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      }
+      
+      .social-icons, .fan-icons {
+        gap: 15px;
+      }
+      
+      .social-icons img, .fan-icons img {
+        width: 45px;
+        height: 45px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Cute-K-Fam</h1>
+  </header>
+
+  <div class="main-content">
+    <a href="https://cutekfam.github.io/Katednl/#" aria-label="Visit Katerina's main page">
+      <div class="glow-container shine-effect">
+        <img src="Circle.png" alt="Katerina Danilenko profile picture">
+      </div>
+    </a> 
+    ⬆️
+    <div class="social-container">
+      <h2 class="section-title">HOST</h2>
+      <p>Follow Katerina on social media</p>
+      <div class="social-icons">
+        <a href="https://instagram.com/katednl" target="_blank" rel="noopener noreferrer" class="social-icon">
+          <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram" />
+          <span>Instagram</span>
+        </a>
+        <a href="https://www.tiktok.com/@katerinadanilenko_" target="_blank" rel="noopener noreferrer" class="social-icon">
+          <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" alt="TikTok" />
+          <span>TikTok</span>
+        </a>
+        <a href="#" class="social-icon">
+          <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter" />
+          <span>Twitter</span>
+        </a>
+        <a href="#" class="social-icon">
+          <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" />
+          <span>YouTube</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="bio">
+      <h2 class="section-title">ABOUT KATERINA</h2>
+      <p>Katerina Danilenko is a talented content creator and social media personality known for her engaging videos and vibrant personality. Join the Cute-K-Fam community to stay updated with her latest content and connect with other fans!</p>
+    </div>
+
+    <div>
+      <h2 class="section-title">FAN PAGES</h2>
+<div class="fan-icons">
+  <a href="https://www.tiktok.com/@cutekfam" target="_blank" rel="noopener noreferrer">
+    <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" alt="@cutekfam TikTok" />
+  </a>
+  <a href="https://www.tiktok.com/@cutekfam2.0" target="_blank" rel="noopener noreferrer">
+    <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" alt="@cutekfam2.0 TikTok" />
+  </a>
+</div>
+<p>Follow our official fan pages</p>
+
+    <div class="gallery">
+      <h2 class="section-title">GALLERY</h2>
+      <div class="gallery-item">
+        <img src="Kate1.png" alt="Katerina photo 1">
+      </div>
+      <div class="gallery-item">
+        <img src="Kate2.png" alt="Katerina photo 2">
+      </div>
+      <div class="gallery-item">
+        <img src="Kate3.png" alt="Katerina photo 3">
+      </div>
+      <div class="gallery-item">
+        <img src="Kate4.png" alt="Katerina photo 4">
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div style="max-width: 800px; margin: 0 auto;">
+      <p>Copyright ©️ 2025 Cute-K-Fam. All rights reserved.</p>
+      <p>This page is made by Cute-K-Fam for our favorite host Katerina Danilenko.</p>
+      <p>Contact: <a href="mailto:cutekfam@gmail.com">cutekfam@gmail.com</a> | 
+        <a href="#">Privacy Policy</a> | 
+        <a href="#">Terms of Service</a>
+      </p>
+      <div class="social-icons" style="margin-top: 15px;">
+        <a href="https://discord.gg/By8EYSHp"><i class="fab fa-discord"></i></a>
+        <a href="#"><i class="fab fa-telegram"></i></a>
+        <a href="#"><i class="fab fa-reddit"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" class="back-to-top" id="backToTop">
+    <i class="fas fa-arrow-up"></i>
+  </a>
+
+  <script>
+    // Back to top button
+    const backToTopButton = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTopButton.classList.add('visible');
+      } else {
+        backToTopButton.classList.remove('visible');
+      }
+    });
+    
+    backToTopButton.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    
+    // Image lazy loading
+    document.addEventListener('DOMContentLoaded', function() {
+      const lazyImages = [].slice.call(document.querySelectorAll('img.lazy'));
+      
+      if ('IntersectionObserver' in window) {
+        let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              let lazyImage = entry.target;
+              lazyImage.src = lazyImage.dataset.src;
+              lazyImage.classList.remove('lazy');
+              lazyImageObserver.unobserve(lazyImage);
+            }
+          });
+        });
+        
+        lazyImages.forEach(function(lazyImage) {
+          lazyImageObserver.observe(lazyImage);
+        });
+      }
+    });
+  </script>
+</body>
+</html>
